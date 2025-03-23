@@ -1,2 +1,2 @@
 How long do you wait?6 hours:11000;3hours:00110;
-Do you eat kitneyot?yes:europe;no:asia
+Do you eat kitneyot?yes:00001;no:10000
