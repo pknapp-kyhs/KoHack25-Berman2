@@ -1,5 +1,5 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ public class DataReader{
 
     static {
         try {
-            scanner = new Scanner("Data.txt");
+            scanner = new Scanner(dataFile);
         } catch (FileNotFoundException e) {
             //do nothing
         }
