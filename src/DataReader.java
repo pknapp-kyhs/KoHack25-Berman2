@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import javax.sound.sampled.Line;
 
 public class DataReader{
     private static File dataFile = new File("Data.txt");
@@ -25,18 +26,68 @@ public class DataReader{
         }
         return rawResults;
     }
-    public static ArrayList<String> getQuestionText(ArrayList<String> data)
+    //input the whole line of raw data and get just the question text
+    public static String getQuestionText(String data)
     {
-        ArrayList<String> questionList = new ArrayList<String>();
-        for(int i = 0; i < data.size(); i++)
-        {
-            questionList.add(data.get(i).substring(0,data.get(i).indexOf("?")));
-        }
-        return questionList;
+        //ArrayList<String> questionList = new ArrayList<String>();
+        //for(String line : data)
+        //{
+        //    questionList.add(line.substring(0,line.indexOf("?")+1));
+        //}
+        return data.substring(0,data.indexOf("?")+1);
     }
-    private String getJustAnswer(String data)
+    //input the whole line of data and get just the answers part
+    private static String getJustAnswer(String data)
     {
-        return data.substring(data.indexOf("?")+1, data.length());
+        //ArrayList<String> output=  new ArrayList<String>();
+        //for(String element : data)
+        //{
+        //    output.add(data.substring(data.indexOf("?")+1, data.size()));
+        //}
+        return data.substring(data.indexOf("?")+1);
+    }
+    //input just the answers of a line in the text file and get an array of answer objects
+    public static Answer[] getAnswerArray(String data)
+    {
+        ArrayList<String> answers = new ArrayList<String>();
+        ArrayList<String> numbers = new ArrayList<String>();
+        while(data.indexOf(";") != -1)
+        {
+            answers.add(data.substring(0, data.indexOf(":")));
+            answers.add(data.substring(data.indexOf(":"), data.indexOf(";")));
+            data = data.substring(0,data.indexOf(":"));
+        }
+        Answer[] output = new Answer[answers.size()];
+        for(int i = 0; i < answers.size(); i++)
+        {
+            output[i] = new Answer(convertStringToNumbers(numbers.get(i)), answers.get(i));
+        }
+        return null;
+    }
+    //converts a string of a bunch of numbers and turns it into an array of ints
+    private static int[] convertStringToNumbers(String numberString)
+    {
+        int[] output = new int[numberString.length()];
+        for(int i = 0; i < numberString.length(); i++)
+        {
+            output[i] = Integer.parseInt(numberString.substring(i, i+1));
+        }
+        return output;
+    }
+    //inputs a single line of raw data and returns a question object corresponding to that line
+    public static Question getQuestionObject(String lineOfRawData)
+    {
+        return new Question(getQuestionText(lineOfRawData), getAnswerArray(getJustAnswer(lineOfRawData)));
     }
     
+    public static ArrayList<Question> getEveryQuestion()
+    {
+        ArrayList<String> rawResults = getRawResults();
+        ArrayList<Question> output = new ArrayList<Question>();
+        for(String line: rawResults)
+        {
+            output.add(getQuestionObject(line));
+        }
+        return output;
+    }
 }
