@@ -1,4 +1,5 @@
 //quiz class, will contain code to open window and load questions
+import java.util.*;
 import javax.swing.*;
 
 public class Quiz {
@@ -20,7 +21,6 @@ public class Quiz {
         for (Question question: questions) {
             addResult(ask(question));
         }
-        System.out.println(result);
     }
 
     //a method to ask one question
