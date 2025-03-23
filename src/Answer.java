@@ -18,4 +18,7 @@ public class Answer {
     public int[] getResult() {
         return result;
     }
+    public String toString() {
+        return text;
+    }
 }
