@@ -1,9 +1,7 @@
-import java.security.InvalidParameterException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class Question extends JOptionPane {
     //instance variables
@@ -22,8 +20,8 @@ public class Question extends JOptionPane {
         this.answers = answers;
     }
     
-    public int[] ask(JFrame parent) {
-        return answers[showOptionDialog(parent,question,"Question",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,answers,0)].getResult();
+    public int[] ask() {
+        return answers[showOptionDialog(null,question,"Question",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,answers,0)].getResult();
     }
 
 }
