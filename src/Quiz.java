@@ -13,13 +13,16 @@ public class Quiz extends JFrame{
         super();
         this.questions = questions;
         this.result = new int[RESOLUTION];
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     //a method to run the quiz program
     public void run() {
+        setVisible(true);
         for (Question question: questions) {
             addResult(ask(question));
         }
+        System.out.println(result);
     }
 
     //a method to ask one question
