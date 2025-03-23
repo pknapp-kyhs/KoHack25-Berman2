@@ -1,0 +1,2 @@
+How long do you wait?6 hours:germany,lithuania;3hours:america
+Do you eat kitneyot?yes:europe;no:asia
