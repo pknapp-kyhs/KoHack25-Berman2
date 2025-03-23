@@ -12,6 +12,12 @@ public class Question extends JOptionPane {
 
     public Question(String question, Answer[] answers) {
         super();
+        if (question == null || answers == null || answers.length <= 0) {
+            //debugging and error handling
+            System.out.println(question);
+            System.out.println(answers);
+            throw new IllegalArgumentException("Invalid Constructor inputs");
+        }
         main = new JPanel(new GridLayout(2,1));
         //add the question at the top
         add(new JTextArea(question));

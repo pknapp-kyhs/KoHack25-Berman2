@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-import javax.sound.sampled.Line;
 
 public class DataReader{
     private static File dataFile = new File("Data.txt");
@@ -46,23 +45,27 @@ public class DataReader{
         //}
         return data.substring(data.indexOf("?")+1);
     }
+
+    //overly compact function to turn a string in the format answer:intintintintint to an answer object
+    public static Answer stringToAnswer(String data) {
+        return new Answer(convertStringToNumbers(data.substring(data.indexOf(":") + 1)), data.substring(0, data.indexOf(":")));
+    }
     //input just the answers of a line in the text file and get an array of answer objects
     public static Answer[] getAnswerArray(String data)
     {
+        //initialize ArrayLists to hold the answers and their coresponding keys
         ArrayList<String> answers = new ArrayList<String>();
         ArrayList<String> numbers = new ArrayList<String>();
-        while(data.indexOf(";") != -1)
-        {
-            answers.add(data.substring(0, data.indexOf(":")));
-            numbers.add(data.substring(data.indexOf(":"), data.indexOf(";")));
-            data = data.substring(0,data.indexOf(":"));
+        //split the whole line around the ";" charachter
+        String[] answerStrings = data.split(";");
+        //turn each string into an answer object
+        Answer[] output = new Answer[answerStrings.length];
+
+        for (int i = 0; i < answerStrings.length; i++) {
+            output[i] = stringToAnswer(answerStrings[i]);
         }
-        Answer[] output = new Answer[answers.size()];
-        for(int i = 0; i < answers.size(); i++)
-        {
-            output[i] = new Answer(convertStringToNumbers(numbers.get(i)), answers.get(i));
-        }
-        return null;
+
+        return output;
     }
     //converts a string of a bunch of numbers and turns it into an array of ints
     private static int[] convertStringToNumbers(String numberString)
