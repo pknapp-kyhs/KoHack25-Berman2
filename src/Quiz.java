@@ -1,6 +1,4 @@
 //quiz class, will contain code to open window and load questions
-import java.util.*;
-import javax.swing.*;
 
 public class Quiz {
     //the number of result locations allowed
@@ -36,5 +34,10 @@ public class Quiz {
         for (int i = 0; i < result.length; i++) {
             result[i] += qResult[i];
         }
+    }
+
+    public int[] getResult()
+    {
+        return result;
     }
 }
