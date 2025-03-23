@@ -54,7 +54,7 @@ public class DataReader{
         while(data.indexOf(";") != -1)
         {
             answers.add(data.substring(0, data.indexOf(":")));
-            answers.add(data.substring(data.indexOf(":"), data.indexOf(";")));
+            numbers.add(data.substring(data.indexOf(":"), data.indexOf(";")));
             data = data.substring(0,data.indexOf(":"));
         }
         Answer[] output = new Answer[answers.size()];
