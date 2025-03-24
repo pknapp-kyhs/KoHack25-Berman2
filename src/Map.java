@@ -19,10 +19,10 @@ public class Map extends JPanel {
         map = new HashMap<>();
         String[] keys = Results.countries;
         String[] values = {"DE","LT","PL","FR","UA","IT","NL"};
+        //add all pairs to the hashmap
         for (int i = 0; i < keys.length; i++) {
             map.put(keys[i], values[i]);
         }
-
     }
 
     public Map(String path) {
@@ -32,22 +32,24 @@ public class Map extends JPanel {
             URI svgURI = new File(path).toURI();
             diagram = universe.getDiagram(svgURI);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     //a method to turn the completed SortElement array into colors
     public void setColors(SortElement[] elements) {
         for (SortElement element : elements) {
-            changeRegionColor(map.get(element.text), Color.RED, element.value/weight);
+            setRegionColor(map.get(element.text), Color.RED, element.value/weight);
         }
     }
 
-    //a method to change the color of a svg region
-    public void changeRegionColor(String id, Color color, double opacity) {
+    //a method to set the color of a svg region
+    public void setRegionColor(String id, Color color, double opacity) {
         if (opacity > 1) {
             opacity = 1;
         }
         try {
+            //get the element of the particular country
             SVGElement element = diagram.getElement(id);
             if (element != null) {
                 //format string as a series of 3 2 digit hex codes, for color

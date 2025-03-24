@@ -77,6 +77,7 @@ public class DataReader{
     
     //returns all questions in object form
     public static ArrayList<Question> getEveryQuestion() {
+        //an arrayList of strings representing one question each
         ArrayList<String> rawResults = getRawResults();
         ArrayList<Question> output = new ArrayList<Question>();
         for(String line: rawResults) {

@@ -1,6 +1,8 @@
 //a class to hold a potential answer to a question
 public class Answer {
+    //a result, representing the countries that answer would indicate
     int[] result;
+    //the display text of the question
     String text;
     
     public Answer(int[] result, String text) {
