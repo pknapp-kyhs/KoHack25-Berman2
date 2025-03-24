@@ -14,9 +14,11 @@ public class Answer {
         this.result = result;
     }
 
+    //Returns the text of the answer
     public String getText() {
         return text;
     }
+    //returns the weight values of this answer. This is an array of ints. Each int represents a different country.
     public int[] getResult() {
         return result;
     }
