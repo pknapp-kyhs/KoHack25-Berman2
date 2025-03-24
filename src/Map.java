@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Map extends JPanel {
     //initialize the denominator used in determining the weight of all colors needed
-    public static final double weight = 3.0;
+    public static final double weight = 7.0;
 
     SVGDiagram diagram;
 

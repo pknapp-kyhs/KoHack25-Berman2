@@ -1,0 +1,7 @@
+How long do you wait between meat and dairy?1 Hour:0000001;3hours:1000000;6 Hours:0111110;
+Do you wear Talit before becoming married?yes:1000001;no:0111110;
+In Kaddish, does your family say ויצמך פורקניה?Yes:0110000;No:1001111;IDK:0000000;
+What do you use for Havdallah?Myrtle leaves:0110000;Spices:1000001;IDK/Other:0000000;
+Do you wash before saying kiddush?Yes:1000000;No:0111111;
+Do you eat Matza 30 days before Pesach?Yes:1011111;No:0100000;
+Do you put on tefillin during chol hamoed?Yes, with a bracha:1000000;Yes, without a bracha:0011111;No:0100000;

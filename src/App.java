@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         run();
     }
     public static void run() {
@@ -11,7 +13,7 @@ public class App {
         quiz.run();
         SortElement[] elements = Results.getSortedResults(quiz);
         JFrame frame = new JFrame("Output");
-        Map map = new Map("europe.svg");
+        Map map = new Map("resources/europe.svg");
         map.setColors(elements);
         frame.add(map);
         frame.setSize(800,600);

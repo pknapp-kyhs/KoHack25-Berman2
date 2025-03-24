@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class DataReader{
-    private static File dataFile = new File("Data.txt");
+    private static File dataFile = new File("resources/questions.txt");
     
     private static Scanner scanner;
 
