@@ -1,9 +1,7 @@
 import java.util.Arrays;
 
 public class Results {
-<<<<<<< HEAD
 
-=======
     String[] countries = {"Germany", "Lithuania", "Poland", "France", "Ukraine", "Italy", "Netherlands"};
     public static String[] getDisplayResults(int numResults, Quiz quiz)
     {
@@ -57,5 +55,4 @@ public class Results {
         }
         return output;
     }
->>>>>>> 085ddcc3828c1d4d9826712d86ad5f0fd90b73ea
 }
