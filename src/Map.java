@@ -5,9 +5,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.net.URI;
+import java.util.HashMap;
 
 public class Map extends JPanel {
     SVGDiagram diagram;
+
+    //set up a hashmap to turn country names to their codes in the svg
+    public static HashMap<String, String> map;
+    static {
+        map = new HashMap<>();
+        String[] keys = Results.countries;
+        String[] values = {"DE","LT","PL","FR","UA","IT","NL"};
+        for (int i = 0; i < keys.length; i++) {
+            map.put(keys[i], values[i]);
+        }
+
+    }
 
     public Map(String path) {
         try {
