@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class DataReader{
-    private static File dataFile = new File("Data.txt");
+    private static File dataFile = new File("resources/questions.txt");
     
     private static Scanner scanner;
 
@@ -76,12 +76,10 @@ public class DataReader{
     }
     
     //returns all questions in object form
-    public static ArrayList<Question> getEveryQuestion()
-    {
+    public static ArrayList<Question> getEveryQuestion() {
         ArrayList<String> rawResults = getRawResults();
         ArrayList<Question> output = new ArrayList<Question>();
-        for(String line: rawResults)
-        {
+        for(String line: rawResults) {
             output.add(getQuestionObject(line));
         }
         return output;
