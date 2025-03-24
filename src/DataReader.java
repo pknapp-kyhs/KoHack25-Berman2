@@ -38,11 +38,6 @@ public class DataReader{
     //input the whole line of data and get just the answers part
     private static String getJustAnswer(String data)
     {
-        //ArrayList<String> output=  new ArrayList<String>();
-        //for(String element : data)
-        //{
-        //    output.add(data.substring(data.indexOf("?")+1, data.size()));
-        //}
         return data.substring(data.indexOf("?")+1);
     }
 
@@ -80,6 +75,7 @@ public class DataReader{
         return new Question(getQuestionText(lineOfRawData), getAnswerArray(getJustAnswer(lineOfRawData)));
     }
     
+    //returns all questions in object form
     public static ArrayList<Question> getEveryQuestion()
     {
         ArrayList<String> rawResults = getRawResults();
