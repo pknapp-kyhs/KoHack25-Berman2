@@ -1,7 +1,11 @@
 import java.awt.Font;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import java.io.*;
 
 public class ResultDisplay extends JFrame {
     static final String SVG_PATH = "resources/europe.svg";
@@ -10,6 +14,14 @@ public class ResultDisplay extends JFrame {
     //the constructor of the result window
     public ResultDisplay(Quiz quiz) {
         super("Your Quiz Results");
+
+        //open the image to be the icon image
+        try {
+            BufferedImage image = ImageIO.read(new File("resources/logo.png"));
+            setIconImage(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //sort the quiz results
         SortElement[] results = Results.getSortedResults(quiz);

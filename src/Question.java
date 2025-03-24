@@ -1,9 +1,22 @@
 import javax.swing.*;
+import java.io.*;
+import java.awt.*;
+import javax.imageio.*;
 
 public class Question extends JOptionPane {
     //instance variables
     String question;
     Answer[] answers;
+    //sets up the icon used in the questions
+    static ImageIcon icon;
+    static {
+        ImageIcon bigIcon = new ImageIcon("resources/logo.png");
+        Image bigImage = bigIcon.getImage();
+        Image smallImage = bigImage.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+        icon = new ImageIcon(smallImage);
+
+
+    }
 
     public Question(String question, Answer[] answers) {
         super();
@@ -18,6 +31,8 @@ public class Question extends JOptionPane {
     //asks the question
     public int[] ask() {
         //returns the array of ints from the chosen answer
-        return answers[showOptionDialog(null,question,"Question",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,answers,0)].getResult();
+        //makes an icon to use in the question popup
+        ImageIcon bigIcon = new ImageIcon("resources/logo.png");
+        return answers[showOptionDialog(null,question,"Question",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,icon,answers,0)].getResult();
     }
 }
