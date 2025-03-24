@@ -9,7 +9,8 @@ import java.util.HashMap;
 
 public class Map extends JPanel {
     //initialize the denominator used in determining the weight of all colors needed
-    public static final double weight = 7.0;
+    public static final double WEIGHT = 7.0;
+    public static final int COLORWEIGHT = (255/7);
 
     SVGDiagram diagram;
 
@@ -26,6 +27,7 @@ public class Map extends JPanel {
     }
 
     public Map(String path) {
+        setBackground(new Color(220,220,255));
         try {
             //open svg file
             SVGUniverse universe = new SVGUniverse();
@@ -39,7 +41,7 @@ public class Map extends JPanel {
     //a method to turn the completed SortElement array into colors
     public void setColors(SortElement[] elements) {
         for (SortElement element : elements) {
-            setRegionColor(map.get(element.text), Color.RED, element.value/weight);
+            setRegionColor(map.get(element.text), new Color(255,0,255), Math.pow(element.value/WEIGHT, 2));
         }
     }
 
