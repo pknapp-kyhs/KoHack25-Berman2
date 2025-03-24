@@ -26,10 +26,12 @@ public class Map extends JPanel {
         }
     }
 
+
     public Map(String path) {
+        //set background color
         setBackground(new Color(220,220,255));
         try {
-            //open svg file
+            //open svg file, and store it as a diagram in diagram
             SVGUniverse universe = new SVGUniverse();
             URI svgURI = new File(path).toURI();
             diagram = universe.getDiagram(svgURI);
@@ -40,13 +42,16 @@ public class Map extends JPanel {
 
     //a method to turn the completed SortElement array into colors
     public void setColors(SortElement[] elements) {
+        //itterate through all countries
         for (SortElement element : elements) {
+            //draw each color with an opacity porportinal to the value^2
             setRegionColor(map.get(element.text), new Color(255,0,255), Math.pow(element.value/WEIGHT, 2));
         }
     }
 
     //a method to set the color of a svg region
     public void setRegionColor(String id, Color color, double opacity) {
+        //filter input
         if (opacity > 1) {
             opacity = 1;
         }
@@ -58,6 +63,7 @@ public class Map extends JPanel {
                 String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
                 //set fill color
                 element.addAttribute("fill",AnimationElement.AT_CSS,hex);
+                //set opacity
                 element.addAttribute("fill-opacity", AnimationElement.AT_CSS, Double.toString(opacity));
                 //update svg to apply change
                 diagram.updateTime(0);

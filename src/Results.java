@@ -1,11 +1,16 @@
 import java.util.Arrays;
 
+//a class to handle the results of a quiz
 public class Results {
-
+    //a static list of possible countries
     public static String[] countries = {"Germany", "Lithuania", "Poland", "France", "Ukraine", "Italy", "Netherlands"};
+    
+    //takes a quiz and sorts the countries by how close of a match each one is
     public static SortElement[] getSortedResults(Quiz quiz) {
+        //start with the list of ints
         int[] rawList = quiz.getResult();
         SortElement[] rawElementList = new SortElement[rawList.length];
+        //make all SortElement objects
         for (int i = 0; i < rawList.length; i++) {
             rawElementList[i] = new SortElement(countries[i], rawList[i]);
         }

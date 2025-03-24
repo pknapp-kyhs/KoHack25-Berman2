@@ -1,7 +1,5 @@
 //quiz class, will contain code to open window and load questions
 
-import java.util.ArrayList;
-
 public class Quiz {
     //the number of result locations allowed
     public static final int RESOLUTION = 7;
@@ -13,34 +11,33 @@ public class Quiz {
     
     public Quiz(Question[] questions) {
         this.questions = questions;
+        //starts with 0s, will be filled in as quiz goes on
         this.result = new int[RESOLUTION];
     }
 
     //a method to run the quiz program
     public void run() {
-
+        //iterates through questions
         for (Question question: questions) {
-            addResult(ask(question));
+            //asks question, then adds its value to the result
+            addResult(question.ask());
         }
     }
 
-    //a method to ask one question
-    public int[] ask(Question question) {
-        return question.ask();
-    }
 
     //adds the result of a question to the running total
     public void addResult(int[] qResult) {
-        if (qResult.length != result.length) {
+        //check to make sure the array to be added is the same length as the instance variable array
+        if (qResult.length != this.result.length) {
             throw new IllegalArgumentException("Cannot add mismatched arrays");
         }
-        for (int i = 0; i < result.length; i++) {
-            result[i] += qResult[i];
+        //iterates through values, and ads them
+        for (int i = 0; i < this.result.length; i++) {
+            this.result[i] += qResult[i];
         }
     }
 
-    public int[] getResult()
-    {
+    public int[] getResult() {
         return result;
     }
 }
