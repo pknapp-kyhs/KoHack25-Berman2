@@ -4,6 +4,7 @@
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib\\svgSalamander-1.1.4.jar"
+        "lib\\svgSalamander-1.1.4.jar",
+        "lib/**/*.jar"
     ]
 }
