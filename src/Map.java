@@ -35,7 +35,10 @@ public class Map extends JPanel {
     }
 
     //a method to change the color of a svg region
-    public void changeRegionColor(String id, Color color) {
+    public void changeRegionColor(String id, Color color, double opacity) {
+        if (opacity > 1) {
+            opacity = 1;
+        }
         try {
             SVGElement element = diagram.getElement(id);
             if (element != null) {
@@ -43,7 +46,7 @@ public class Map extends JPanel {
                 String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
                 //set fill color
                 element.addAttribute("fill",AnimationElement.AT_CSS,hex);
-                //element.addAttribute("fill-opacity", AnimationElement.AT_CSS, "0.5");
+                element.addAttribute("fill-opacity", AnimationElement.AT_CSS, Double.toString(opacity));
                 //update svg to apply change
                 diagram.updateTime(0);
             } 
