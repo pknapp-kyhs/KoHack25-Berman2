@@ -1,3 +1,4 @@
-How long do you wait?6 hours:11000;3hours:00110;
-Do you eat kitneyot?yes:00001;no:10000;
-TesterQuestion?yes:10101;test2:01010;
+How long do you waitbetween meat and dairy?1 Hour:0000001;3hours:1000000;6 Hours:0111110;
+Do you wear Talit before becoming married?yes:1000001;no:011110;
+In Kaddish, does your family say ויצמך פורקניה?Yes:0110000;No:1001111;
+What do you use for Havdallah?Myrtle leaves:0110000;Spices:1000001;
