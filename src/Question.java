@@ -1,6 +1,6 @@
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 
 public class Question extends JOptionPane {
@@ -26,6 +26,7 @@ public class Question extends JOptionPane {
         this.answers = answers;
     }
     
+    //asks the question
     public int[] ask() {
         return answers[showOptionDialog(null,question,"Question",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,null,answers,0)].getResult();
     }
