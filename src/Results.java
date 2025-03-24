@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Results {
 
-    String[] countries = {"Germany", "Lithuania", "Poland", "France", "Ukraine", "Italy", "Netherlands"};
+    public static String[] countries = {"Germany", "Lithuania", "Poland", "France", "Ukraine", "Italy", "Netherlands"};
     public static String[] getDisplayResults(int numResults, Quiz quiz)
     {
         int[] rawList = quiz.getResult();
