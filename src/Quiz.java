@@ -1,5 +1,4 @@
 //quiz class, will contain code to open window and load questions
-
 public class Quiz {
     //the number of result locations allowed
     public static final int RESOLUTION = 7;
@@ -23,7 +22,6 @@ public class Quiz {
             addResult(question.ask());
         }
     }
-
 
     //adds the result of a question to the running total
     public void addResult(int[] qResult) {

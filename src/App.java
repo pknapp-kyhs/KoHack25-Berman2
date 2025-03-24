@@ -1,4 +1,3 @@
-
 import javax.swing.UIManager;
 
 public class App {
