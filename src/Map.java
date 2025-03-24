@@ -13,7 +13,7 @@ public class Map extends JPanel {
         try {
             //open svg file
             SVGUniverse universe = new SVGUniverse();
-            URI svgURI = new File("europe.svg").toURI();
+            URI svgURI = new File(path).toURI();
             diagram = universe.getDiagram(svgURI);
         } catch (Exception e) {
         }
@@ -29,11 +29,11 @@ public class Map extends JPanel {
                 //format string as a series of 3 2 digit hex codes, for color
                 String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
                 //set fill color
-                element.setAttribute("fill",AnimationElement.AT_CSS,hex);
-                element.addAttribute("fill-opacity", AnimationElement.AT_CSS, "0.5");
+                element.addAttribute("fill",AnimationElement.AT_CSS,hex);
+                //element.addAttribute("fill-opacity", AnimationElement.AT_CSS, "0.5");
                 //update svg to apply change
                 diagram.updateTime(0);
-            }
+            } 
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -3,7 +3,6 @@
    baseprofile="tiny"
    fill="#ececec"
    height="410"
-   stroke="black"
    stroke-linecap="round"
    stroke-linejoin="round"
    stroke-width=".1"
