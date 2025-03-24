@@ -14,7 +14,8 @@ public class ResultDisplay extends JFrame {
     //the constructor of the result window
     public ResultDisplay(Quiz quiz) {
         super("results");
-        mainPanel = new JPanel(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         Map map = new Map(SVG_PATH);
         SortElement[] results = Results.getSortedResults(quiz);
@@ -23,14 +24,14 @@ public class ResultDisplay extends JFrame {
 
         JPanel leaderBoard = new JPanel();
         leaderBoard.setLayout(new BoxLayout(leaderBoard, BoxLayout.X_AXIS));
-        
+
         for (int i = 0; i < 3; i++) {
             leaderBoard.add(sortElementToPanel(results[i]));
         }
         mainPanel.add(leaderBoard);
 
         add(mainPanel);
-        setSize(700,500);
+        setSize(600,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -41,8 +42,10 @@ public class ResultDisplay extends JFrame {
 
         JLabel country = new JLabel(element.text + ":");
         country.setFont(new Font("Arial",Font.BOLD,16));
-
-        JLabel value = new JLabel(Integer.toString((int) ((element.value/Map.weight) * 100)) + "%");
+        if (element.value/Map.WEIGHT > 1.0) {
+            element.value = (int) Map.WEIGHT;
+        }
+        JLabel value = new JLabel(Integer.toString((int) ((element.value/Map.WEIGHT) * 100)) + "%");
         value.setFont(new Font("Arial",Font.PLAIN,12));
 
         panel.add(country);
