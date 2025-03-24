@@ -53,9 +53,6 @@ public class DataReader{
     //input just the answers of a line in the text file and get an array of answer objects
     public static Answer[] getAnswerArray(String data)
     {
-        //initialize ArrayLists to hold the answers and their coresponding keys
-        ArrayList<String> answers = new ArrayList<String>();
-        ArrayList<String> numbers = new ArrayList<String>();
         //split the whole line around the ";" charachter
         String[] answerStrings = data.split(";");
         //turn each string into an answer object
