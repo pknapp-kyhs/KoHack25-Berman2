@@ -3,14 +3,14 @@ import java.util.Arrays;
 public class Results {
 
     public static String[] countries = {"Germany", "Lithuania", "Poland", "France", "Ukraine", "Italy", "Netherlands"};
-    public static String[] getDisplayResults(int numResults, Quiz quiz) {
+    public static SortElement[] getSortedResults(Quiz quiz) {
         int[] rawList = quiz.getResult();
         SortElement[] rawElementList = new SortElement[rawList.length];
         for (int i = 0; i < rawList.length; i++) {
             rawElementList[i] = new SortElement(countries[i], rawList[i]);
         }
         SortElement[] sortedList = sort(rawElementList);
-        
+        return sortedList;
     }
     //merge sort algorithm
     public static SortElement[] sort(SortElement[] arr) {

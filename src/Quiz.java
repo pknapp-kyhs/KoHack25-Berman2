@@ -1,5 +1,7 @@
 //quiz class, will contain code to open window and load questions
 
+import java.util.ArrayList;
+
 public class Quiz {
     //the number of result locations allowed
     public static final int RESOLUTION = 7;
@@ -8,6 +10,7 @@ public class Quiz {
     //contains an array of numbers representing the result
     int[] result;
 
+    
     public Quiz(Question[] questions) {
         this.questions = questions;
         this.result = new int[RESOLUTION];

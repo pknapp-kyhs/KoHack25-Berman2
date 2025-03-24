@@ -1,4 +1,4 @@
 How long do you waitbetween meat and dairy?1 Hour:0000001;3hours:1000000;6 Hours:0111110;
-Do you wear Talit before becoming married?yes:1000001;no:011110;
+Do you wear Talit before becoming married?yes:1000001;no:0111100;
 In Kaddish, does your family say ויצמך פורקניה?Yes:0110000;No:1001111;
 What do you use for Havdallah?Myrtle leaves:0110000;Spices:1000001;

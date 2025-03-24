@@ -8,6 +8,9 @@ import java.net.URI;
 import java.util.HashMap;
 
 public class Map extends JPanel {
+    //initialize the denominator used in determining the weight of all colors needed
+    public static final double weight = 3.0;
+
     SVGDiagram diagram;
 
     //set up a hashmap to turn country names to their codes in the svg
@@ -30,8 +33,13 @@ public class Map extends JPanel {
             diagram = universe.getDiagram(svgURI);
         } catch (Exception e) {
         }
-    
+    }
 
+    //a method to turn the completed SortElement array into colors
+    public void setColors(SortElement[] elements) {
+        for (SortElement element : elements) {
+            changeRegionColor(map.get(element.text), Color.RED, element.value/weight);
+        }
     }
 
     //a method to change the color of a svg region
