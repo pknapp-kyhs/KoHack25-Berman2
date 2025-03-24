@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class ResultDisplay extends JFrame {
     static final String SVG_PATH = "resources/europe.svg";
-    static final String INFO_STRING = "Yehuda Please fill this in";
+    static final String INFO_STRING = "Additional Minahgim \n\n\ndata coming soon";
 
     //the constructor of the result window
     public ResultDisplay(Quiz quiz) {
