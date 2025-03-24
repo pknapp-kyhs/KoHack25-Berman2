@@ -1,14 +1,22 @@
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+import com.kitfox.svg.Text;
 
 public class ResultDisplay extends JFrame {
     static final String SVG_PATH = "resources/europe.svg";
+    static final String INFO_STRING = "Yehuda Please fill this in";
 
     //the constructor of the result window
     public ResultDisplay(Quiz quiz) {
@@ -31,6 +39,22 @@ public class ResultDisplay extends JFrame {
         for (int i = 0; i < 3; i++) {
             leaderBoard.add(sortElementToPanel(results[i]));
         }
+        //makes a button to go to a page where you can learn more
+        JButton button = new JButton("Learn More");
+        //listner for press
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //removes previous stuff
+                remove(mainPanel);
+                //add text
+                JTextArea text = new JTextArea(INFO_STRING);
+                add(text);
+                //for some reason this works and repaint() doesn't, without it the text is off screen
+                setSize(599,399);
+                setSize(600,400);
+            }
+        });
+        leaderBoard.add(button);
         mainPanel.add(leaderBoard);
         add(mainPanel);
     }
