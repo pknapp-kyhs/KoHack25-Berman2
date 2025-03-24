@@ -9,8 +9,10 @@ public class Results {
         int[] sortedList = sort(rawList);
         return null;
     }
+    //merge sort algorithm
     public static int[] sort(int[] arr)
     {
+        //recursively split up the array until it is a single element and then merge the sorted elements
         if(arr.length>1)
         {
             int mid = arr.length/2;
@@ -22,6 +24,7 @@ public class Results {
         }
         
     }
+    //go element by element to merge two already sorted arrays
     private static int[] merge(int[] left, int[] right)
     {
         int[] output = new int[left.length + right.length];
@@ -31,7 +34,7 @@ public class Results {
         {
             if (leftIndex < left.length && rightIndex < right.length)
             {
-                if (left[leftIndex] <= right[rightIndex])  // ascending sort
+                if (left[leftIndex] >= right[rightIndex])
                 {
                     output[i] = left[leftIndex];
                     leftIndex++;
