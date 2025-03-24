@@ -2,7 +2,7 @@
 
 public class Quiz {
     //the number of result locations allowed
-    public static final int RESOLUTION = 5;
+    public static final int RESOLUTION = 7;
     //contains an array of questions to ask
     Question[] questions;
     //contains an array of numbers representing the result

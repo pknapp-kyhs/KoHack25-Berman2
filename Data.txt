@@ -1,3 +1,3 @@
-How long do you wait?6 hours:11000;3hours:00110;
-Do you eat kitneyot?yes:00001;no:10000;
-TesterQuestion?yes:10101;test2:01010;
+How long do you wait?6 hours:1100010;3hours:0011000;
+Do you eat kitneyot?yes:0000101;no:1000011;
+TesterQuestion?yes:1010101;test2:0101011;
